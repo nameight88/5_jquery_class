@@ -1,10 +1,16 @@
 $(function(){
-    let order = $('#rightTable');
-    let ad = $('.footerTable');
 
+    $(document).ready(function(){
+        $(".slider").bxSlider();
+      });
 
-    order.show();
+    let orderDiv = $('#rightTable')
 
-    
-    ad.hide();
+    let view = $('.view');
+    let order_view = view.find('button').eq(0);
+    let ad_view = view.find('button').eq(0);
+
+    order_view.click(function(){
+        
+    })
 })
