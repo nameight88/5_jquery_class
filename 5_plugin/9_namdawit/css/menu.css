@@ -1,0 +1,54 @@
+
+body {
+	padding: 0px;
+	margin: 0px;
+}
+.tableSet{
+	padding:0 0 1em;
+	border:2px solid #666;
+	margin:0 0 20px;
+	padding:3px;
+	border-radius:4px;
+    text-align : center;
+}
+
+
+#menuTitle{
+	height:100px;
+	background-color :#EEEAE3;
+    text-align : center;
+}
+
+#menuTitleText{
+	font-size: 30px;
+	text-align : center;
+	padding-left: 100px;
+	padding-bottom:10px;
+}
+#leftDiv{
+    border:2px solid #666;
+    text-align : center;
+}
+#rightTable{
+    border:2px solid #666;
+    text-align : center;
+    left: 10px;
+}
+#footerTable{
+    border:2px solid #666;
+
+}
+
+
+div{
+
+	position: relative;
+}
+.result{
+    text-align : left;
+}
+
+.menu {
+	padding: 10px;
+	text-align : center;
+}
