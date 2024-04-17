@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>jquery event</title>
+
+	<style type="text/css">
+		.bg {
+			background: yellow;
+		}
+
+		.border {
+			border: 3px dotted red;
+		}
+	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function () {
+			//원래 이벤트 처리
+			/*
+			$('li').bind('click',function(){
+				//$('#result').html($(this).html());
+				$('#result').html($(this).text());
+			})
+			*/
+
+			/*
+			$('li').one('click',function(){
+				$('#result').text($(this).text());
+			})
+			*/
+
+			$('li').click(function (e) {
+				$('#result').text($(this).text());
+				for (var prop in e) {
+					console.log(prop + "=" + e[prop]);
+				}
+			});
+
+			 //누를 수 있는지 확인 해주는 포인터로 바뀌게해준다.
+
+			$('h1').css({ 'cursor': 'pointer' });
+
+			
+			$('h1').click(function () {
+				let li2 = $('<li>'+new Date()+'<li/>');
+				let li = $('<li/>');
+				li2.text(new Date());
+				//$('ul').append(li2);
+				$('ul').append(li);
+
+				$('li').css({ 'cursor': 'pointer' });
+				});
+			
+			
+				
+				//동적으로 추가 했을때는 이벤트가 추가 되지 않는다.
+				//************************
+				//동적으로 생성된 요소의 이벤트 처리
+					$('ul').on('click','li',function(){
+						$('#result').text($(this).text());
+					});
+
+
+		
+
+			
+		});
+
+	</script>
+</head>
+
+<body>
+	<h1>제이쿼리 이벤트</h1>
+	<ul>
+		<li>부에노스 아이레스</li>
+		<li>바르셀로나</li>
+		<li>리마</li>
+		<li>라파스</li>
+	</ul>
+	<div id="result"></div>
+</body>
+
+</html>

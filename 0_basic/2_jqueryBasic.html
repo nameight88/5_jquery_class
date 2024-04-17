@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title> 첫 연습 </title>
+	<style type="text/css">
+		.active {
+			border: 3px solid;
+			outline: 3px solid red;
+		}
+	</style>
+	<script src="../lib/jquery-3.7.1.js" type="text/javascript"></script>
+	<script>
+		$(function () {
+			//[1]
+			var m = $('ul>li.man');
+			var w = $('ul>li.woman');
+
+			m.css
+				({ 'color': 'pink' });
+
+			w.css
+				({ 'background': 'yellow' });
+
+			var li = $('ul>li');
+
+			li.click(function () {
+				$(this).text("반갑습니다.");
+			})
+			//클릭한 그 속성만 바뀐다.
+
+			/*
+				자바스크립트 : innerHTML
+				제이쿼리     : text() / html
+
+				[*] 제이쿼리는 setter/getter 동일한 함수명이다.
+					-text(인자) : setter 역할
+					-text() : getter 역할
+			*/
+
+			li.click(function () {
+				$(this).html("<del>그 사이에 추가</del>");
+			});
+
+			//alert($(this).text());
+
+			li.click(function () {
+				$(this).text("반갑");
+			});
+
+			//[2]
+
+			let redBox = $('.inputText');
+
+			redBox.focus(function () {
+				$(this).addClass('active');
+
+			});
+
+			redBox.blur(function () {
+				$(this).removeClass('active');
+			});
+
+
+			//[3]
+			$("div#divText").click(function () {
+				$("div#divText").text('img src="images/grim.jpg"');
+			});
+
+			$("div#divHtml").click(function () {
+				$("div#divHtml").html('<img src="images/grim.jpg">');
+			});
+
+			$("div#divEmpty").click(function () {
+				$("div#divEmpty").empty();
+			});
+
+			$('#changeGrim').click(function () {
+
+				//$('#changeGrim').attr('src', 'images/cat.jpg');
+
+				var src = $('#changeGrim').attr('src');
+				$('#changeGrim').attr('src', src.replace('puppy', 'cat'));
+			});
+
+			//[6]
+			let d = $('.data');
+			d.each(function () {
+				d.click(function () {
+					alert($(this).text());
+				});
+			});
+
+			/*
+			d.each(function(){
+				$(this).click(function(){
+
+				})
+			});
+			원래의 문법이지만 생략이 가능하다.
+			*/
+
+			//d.click(function(){
+			//alert($(this).text());
+
+			//alert( this.innerHTML);//제이쿼리가 작동하지 않았을때 자바스크립트 문법을 써야한다.
+			//권장하지 않음
+
+
+			//});
+
+
+			//[4]
+			let c = $('#check');
+			c.each(function () {
+				c.click(function () {
+					let irum = $('#tf').val();
+					let ta = $('#ta').val();
+
+
+					let sel = $('#sel>option:selected').text();
+					let sel_m = $('#sel_m>option:selected').text();
+
+					//alert("이름: " + irum + "메시지: " + ta + "주소: " + sel + " " + sel_m);
+
+					//선택된 라디오 버튼의 값을 아이다가 result 태그의 사이에 출력
+					var gender = $('input[name="gender"]:checked').val();
+
+					var msg = '성별: '+gender+"<br/>";
+
+					$('#result')
+					.html(
+						[msg
+						,$('input[name="lover"]:checked').val()
+						]);
+
+					//$('#result').html($('input[name="lover"]:checked').val());
+				})
+			});
+
+			let it = $('#init').click(function () {
+				//이름 입력칸에 '내 이름은 홍길동입니다.'
+				$('#tf').val('내 이름은 홍길동 입니다.');
+				$('#ta').val('작성중');
+
+				$('#sel').val('masan');
+				$('#sel_m').val(['seom2', 'seom3']);
+				//여러가지 값을 배정을 하고 싶으면 배열로 만들어서 넣어주면 된다.
+
+				//초기화를 눌렀을때 여성으로 체킹
+				//$('input[name="gender"]:eq(1)').attr('checked','true');
+				$('input[name="gender"].find(value)').prop('checked','true');
+				/*
+				[참고]
+				-태그와 태그 사이의 값을 얻어올때:text()/html()
+				-value 값을 얻어올 때: val()
+				*/
+			});
+			//[5]
+			/*
+				[참고] 부모/자식 관계 맺기
+				부모.append(자식)
+				자식.appendTO(부모)				
+			*/ 
+			let actor = $('#actor');
+			let tae = $('#tae');
+			let su = $('#su');
+			let bin = $('#bin');
+
+
+			actor.append(tae);
+			actor.append(bin);
+			su.appendTo(actor);
+			
+			/* ********************************
+				var n = $('div'); 요소를 찾아서
+				var n = $('#div'); 아이디를 기준으로 찾아서
+				var n = $('.div'); 클래스를 기준으로 찾아서
+
+				var n = $('div'); 화면에 있는 div요소를 선책하여 변수 n 을 가리킴
+				var n = $('<div/>'); div 요소의 객체를 메모리 상에 생성하고 변수n을 가리킴
+				var n = $('<div></div>');
+			*/
+
+			var temp = $('<div/>');
+			temp.text('한배우');
+			actor.append(temp);
+			// 변수 temp에 <div/> 객체선언
+			// '한배우'라는 텍스트 값을 추가
+			//actor클래스에 상속을 추가
+
+			var temp2 = $('<div>신입배우</div>');
+			actor.append(temp2);
+
+			//정적인 태그에 새로운 태그를 동적으로 생성
+
+		});
+
+	</script>
+	
+</head>
+
+<body>
+	<!--  1 -->
+	<ul>
+		<li class="man">김수현</li>
+		<li class="woman">김희애</li>
+		<li class="woman">송혜교</li>
+		<li class="man">하정우</li>
+		<li class="woman">김태희</li>
+	</ul>
+	<!-- 2 -->
+	<input type="text" class="inputText" />
+	<input type="text" class="inputText" />
+	<input type="text" class="inputText" />
+
+
+	<!-- 3 -->
+	<div id="divText">여기에 글씨를</div>
+	<div id="divHtml">여기에 그림을</div>
+	<div id="divEmpty">여기를 비움</div>
+	<p>
+		<img src="images/puppy.jpg" id='changeGrim'>
+	</p>
+
+	<!-- 4 -->
+	<p>
+		이름 : <input id="tf" type="text" size="20" /><br />
+		메세지 : <textarea id="ta" rows="3" cols="20"></textarea><br />
+		주소 : <select id="sel">
+			<option value="seoul">서울</option> <!-- option에 value 값 없어도 됨 -->
+			<option value="busan">부산</option>
+			<option value="masan">마산</option>
+			<option value="incheon">인천</option>
+		</select>
+		<select id="sel_m" multiple="multiple">
+			<option value="seom1">제주도</option>
+			<option value="seom2">울릉도</option>
+			<option value="seom3">독도</option>
+			<option value="seom4">거제도</option>
+		</select><br />
+	<div id="gender">
+		성별:
+		<input type="radio" value="남자" name="gender"><span>남자</span>
+		<input type="radio" value="여자" name="gender"><span>여자</span><br>
+	</div>
+	<div>
+		애인:
+		<input type="radio" value="있음" name="lover"><span>있음</span>
+		<input type="radio" value="없음" name="lover"><span>없음</span><br>
+	</div id="lover">
+	<input type='button' id='check' value='확인' />
+	<input type='button' id='init' value='초기화' />
+	<div id='result'></div>
+	</p>
+
+	<!-- 5 -->
+	<div id="actor">배우</div>
+	<div id="tae">김태희</div>
+	<div id="su">김수현</div>
+	<div id="bin">현빈</div>
+
+
+	<!-- 6 -->
+	<div class="data">이름</div>
+	<div class="data">직업</div>
+	<div class="data">나이</div>
+
+
+</body>
+
+</html>
