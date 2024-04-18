@@ -19,7 +19,7 @@ $(function(){
 
     // 총합을 업데이트하는 함수
     function updateTotalPrice() {
-        let totalPrice = 0;
+        var totalPrice = 0;
         $('#orderList tbody tr').each(function() {
             let price = parseInt($(this).find('td:eq(1)').text());
             totalPrice += price;
@@ -51,6 +51,8 @@ $(function(){
     });
     
 
-    
+    $('#pay').click(function(){
+        alert('확인');
+    })
 
 });

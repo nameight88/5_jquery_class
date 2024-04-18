@@ -10,7 +10,24 @@
   <script type="text/javascript" src="js/jstorage.min.js"></script>
 
   <script type="text/javascript">
+    $(function(){
+      //[2] 화면에 뜨자마자 저장된 값 출력
+      $('#name').val($.jStorage.get('myname'));
+      $('#memo').val($.jStorage.get('mymemo'));
+      //[1]
+      $('#set').click(function(){
+        $.jStorage.set('myname',$('#name').val());
+        $.jStorage.set('mymemo',$('#memo').val());
 
+        $('#name').val('');
+        $('#memo').val('');
+      });
+        $('#del').click(function(){
+          $.jStorage.deleteKey('myname');
+          $.jStorage.deleteKey('mymemo');
+        });    
+        
+    })
   </script>
 </head>
 <body>
