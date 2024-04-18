@@ -9,7 +9,6 @@
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" type="text/css" href="./css/menu.css">
-    <script src="./js/view.js" type="text/javascript"></script>
     <script src="./js/menu.js" type="text/javascript"></script>
 </head>
 
@@ -28,20 +27,20 @@
                         <td class="menu">
                             <img src="./images/몬스터.png" /> <br/>
                             <span class="label" value = 'monster'>몬스터X와퍼</span><br/>
-                            <span class="price" value = '10200'>10200</span>원<br/>
+                            <span class="price" data-price = '10200'>10200</span>원<br/>
                             <button class="menuadd">담기</button>
                             <br/>
                         </td>
                         <td class="menu">
                             <img src="./images/블랙콰트로.png" /> <br/>
                             <span class="label" value = 'monster'>블랙콰트로치즈와퍼</span><br/>
-                            <span class="price" value = '10200'>10200</span>원<br/>
+                            <span class="price" data-price = '10200'>10200</span>원<br/>
                             <button class="menuadd">담기</button>
                         </td>
                         <td class="menu">
                             <img src="./images/와퍼.png" /> <br/>
                             <span class="label" value = 'monster'>와퍼</span><br/>
-                            <span class="price" value = '8000'>8000</span>원<br/>
+                            <span class="price" data-price = '8000'>8000</span>원<br/>
                             <button class="menuadd">담기</button>
                         </td>
                     </tr>
@@ -51,19 +50,19 @@
                     <td class="menu">
                         <img src="./images/치킨.png" /> <br/>
                         <span class="label" value = 'monster'>롱치킨버거</span><br/>
-                        <span class="price" value = '5600'>5600</span>원<br/>
+                        <span class="price" data-price = '5600'>5600</span>원<br/>
                         <button class="menuadd">담기</button>
                     </td>
                     <td class="menu">
                         <img src="./images/통모짜.png" /> <br/>
                             <span class="label" value = 'monster'>통모짜와퍼</span><br/>
-                            <span class="price" value = '9900'>9900</span>원<br/>
+                            <span class="price" data-price = '9900'>9900</span>원<br/>
                             <button class="menuadd">담기</button>
                     </td>
                     <td class="menu">
                         <img src="./images/핫칠리와퍼.png" /> <br/>
                         <span class="label" value = 'monster'>베이컨치즈와퍼</span><br/>
-                        <span class="price" value = '9800'>9800</span>원<br/>
+                        <span class="price" data-price = '9800'>9800</span>원<br/>
                         <button class="menuadd">담기</button>
                     </td>
                 </tr>
@@ -73,19 +72,19 @@
             <td class="menu">
                 <img src="./images/cheese.png" /> <br/>
                 <span class="label" value = 'monster'>치즈스틱</span><br/>
-                <span class="price" value = '3400'>3400</span>원<br/>
+                <span class="price" data-price = '3400'>3400</span>원<br/>
                 <button class="menuadd">담기</button>
             </td>
             <td class="menu">
                 <img src="./images/nuggets.png" /> <br/>
                 <span class="label" value = 'monster'>너겟킹</span><br/>
-                <span class="price" value = '3100'>3100</span>원<br/>
+                <span class="price" data-price = '3100'>3100</span>원<br/>
                 <button class="menuadd">담기</button>
             </td>
             <td class="menu">
                 <img src="./images/onion.png" /> <br/>
                 <span class="label" value = 'monster'>어니언링</span><br/>
-                <span class="price" value = '3500'>3500</span>원<br/>
+                <span class="price" data-price = '3500'>3500</span>원<br/>
                 <button class="menuadd">담기</button>
             </td>
         </tr>
@@ -94,14 +93,17 @@
     </tbody>
     </table>
     <hr>
-    <div>
-        <tr id="orderview">
-            <button>주문내역보기</button>
-        </tr>
-        <tr id="adview">
-            <button>광고가리기</button>
+    <div id="orderview" class="toggle-view">
+        <tr >
+            <td><button>주문내역보기</button></td>
         </tr>
     </div>
+        <div id="adview" class="toggle-view">
+        <tr >
+            <td><button>광고가리기</button></td>
+        </tr>
+    </div>
+   
     </div>
     <div id="rightTable">
         <table id='orderList'>
@@ -111,15 +113,23 @@
                     <td>메뉴이름</td> <td>가격</td>
                 </tr>
             </tbody>
+            <tfoot>
+            <tr id="result">
+                <td colspan="2"></td>
+            </tr>
+        </tfoot>
         </table>
-    <div id="result">
-        <tr >총합</tr>
-    </div>
+    
     </div>
 
-    <div class="footerTable">
-        <div>I am a slide.</div>
-        <div>I am another slide.</div>
+    <div class="footerTable" >
+        <div id="ad">
+        <div><a href="#"><img src="./images/ad1.jpg" alt="사진1" /></a></div>
+        <div><a href="#"><img src="./images/ad2.jpg" alt="사진2" /></a></div>
+        <div><a href="#"><img src="./images/ad3.png" alt="사진3" /></a></div>
+        <div><a href="#"><img src="./images/ad4.jpg" alt="사진4" /></a></div>
+        <div><a href="#"><img src="./images/ad5.jpg" alt="사진5" /></a></div>
+        </div>
     </div>
 
 </body>

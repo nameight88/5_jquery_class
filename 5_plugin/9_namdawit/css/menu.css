@@ -14,28 +14,10 @@ body {
 }
 
 /* 테이블의 헤더 셀 스타일 */
-th {
+th, td {
     border: 2px solid #666;
     padding: 10px;
     text-align: center;
-}
-
-/* 테이블의 데이터 셀 스타일 */
-td {
-    border: 2px solid #666;
-    padding: 10px;
-}
-
-/* 푸터 테이블 스타일 */
-#footerTable {
-    border: 2px solid #666;
-    width: 100%;
-}
-
-/* 메뉴 테이블과 주문내역 테이블을 나란히 배치 */
-#leftDiv, #rightTable {
-    display: inline-block;
-    vertical-align: top;
 }
 
 /* 각 메뉴 항목의 이미지 스타일 */
@@ -50,10 +32,23 @@ td {
 }
 
 /* 결과 표시 영역 스타일 */
-.result {
+#result {
     text-align: left;
 }
 
-#rightTable{
-	border: solid #666;
+/* 오른쪽 테이블 스타일 */
+#rightTable {
+    border: solid #666;
+}
+
+/* footer 테이블 스타일 */
+.footerTable {
+    border: 2px solid #666;
+    width: 100%;
+}
+
+/* 메뉴 테이블과 주문내역 테이블을 나란히 배치 */
+#leftDiv, #rightTable {
+    display: inline-block;
+    vertical-align: top;
 }
